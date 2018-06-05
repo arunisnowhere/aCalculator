@@ -34,6 +34,10 @@ def square_root_heron(x, iterations = False):
     '''    
     if not (type(iterations) == type(True)):
         return ("Error: optional parameter must be True or False")
+    if x < 0:
+        return ("Error: please enter nonnegative number only")
+    if x == 0:
+        return 0
     y = 2**(math.frexp(10)[1]/2) # guess the value of y, suggested in https://math.stackexchange.com/questions/521981/picking-an-appropriate-guess-for-herons-method-and-the-fast-reciprocal-method    
     epsilon = 1e-10 # set error
     iter = 0
