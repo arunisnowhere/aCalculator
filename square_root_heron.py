@@ -45,6 +45,6 @@ def square_root_heron(x, iterations = False):
         iter += 1
         y = (y+x/y)/2
     if iterations:
-        return y, iter
+        return y -y, iter
     else:
-        return y
+        return y, -y
