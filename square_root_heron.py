@@ -15,7 +15,7 @@ Last Modified: June 5, 2018
 
 import math
 
-def square_root_heron(x, iterations = False):
+def square_root_heron(x, precision = 12, iterations = False):
     '''
     Return square root for any nonnegative number
     Uses Heron's method
@@ -39,7 +39,8 @@ def square_root_heron(x, iterations = False):
     if x == 0:
         return 0
     y = 2**(math.frexp(10)[1]/2) # guess the value of y, suggested in https://math.stackexchange.com/questions/521981/picking-an-appropriate-guess-for-herons-method-and-the-fast-reciprocal-method    
-    epsilon = 1e-10 # set error
+    epsilon = 1/(10**precision) # set error
+    print (epsilon)
     iter = 0
     while (abs(x-y**2)>=epsilon):        
         iter += 1
@@ -48,3 +49,8 @@ def square_root_heron(x, iterations = False):
         return y -y, iter
     else:
         return y, -y
+    
+
+# TO DO
+# Let user enter required precision.
+# Add comments
